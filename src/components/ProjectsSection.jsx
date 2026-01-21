@@ -1,4 +1,10 @@
-import { ArrowRight, ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  ArrowRight,
+  ExternalLink,
+  Github,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
 const projects = [
@@ -16,29 +22,29 @@ const projects = [
       "TailwindCSS",
       "Radix UI",
     ],
-    demoUrl: "#",
-    githubUrl: "#",
+    demoUrl: "",
+    githubUrl: "https://github.com/SantiagoRtpoBdo/portafolio",
   },
-  // {
-  //   id: 2,
-  //   title: "Orbit Analytics Dashboard",
-  //   description:
-  //     "Interactive analytics dashboard with data visualization and filtering capabilities.",
-  //   image: "/projects/project2.png",
-  //   tags: ["TypeScript", "D3.js", "Next.js"],
-  //   demoUrl: "#",
-  //   githubUrl: "#",
-  // },
-  // {
-  //   id: 3,
-  //   title: "E-commerce Platform",
-  //   description:
-  //     "Full-featured e-commerce platform with user authentication and payment processing.",
-  //   image: "/projects/project3.png",
-  //   tags: ["React", "Node.js", "Stripe"],
-  //   demoUrl: "#",
-  //   githubUrl: "#",
-  // },
+  {
+    id: 2,
+    title: "Clone Spotify",
+    description:
+      "A simple Spotify clone developed to practice frontend development, including music playback, playlists, and song visualization.",
+    image: "/projects/spotify.png",
+    tags: ["TypeScript", "React", "NodeJS", "TailwindCSS", "Vite", "Astro"],
+    demoUrl: "https://santiagortpobdo-clone-spotify.vercel.app/",
+    githubUrl: "https://github.com/SantiagoRtpoBdo/clone-spotify",
+  },
+  {
+    id: 3,
+    title: "Word Search Solver",
+    description:
+      "Developed a web application to solve word search puzzles, detecting words in all directions and highlighting them within a visual matrix",
+    image: "/projects/SolucionadorSopaLetra.png",
+    tags: ["HTML5", "CSS3", "JavaScript"],
+    demoUrl: "",
+    githubUrl: "https://github.com/SantiagoRtpoBdo/Solucionador_Sopa_de_Letras",
+  },
   // {
   //   id: 4,
   //   title: "My Portfolio Website",
@@ -66,7 +72,6 @@ const projects = [
   //   demoUrl: "#",
   //   githubUrl: "#",
   // },
-  
 ];
 
 export const ProjectsSection = () => {
@@ -207,73 +212,81 @@ export const ProjectsSection = () => {
           {/* Carrusel: pista deslizable (track) que contiene todas las tarjetas */}
           <div className="overflow-hidden" ref={trackRef}>
             <div
-              className={`flex transition-transform duration-500 ease-in-out ${projects.length <= itemsPerPage ? 'justify-center' : ''}`}
+              className={`flex transition-transform duration-500 ease-in-out ${projects.length <= itemsPerPage ? "justify-center" : ""}`}
               style={{
                 transform: `translateX(-${currentPage * 100}%)`,
               }}
             >
-              {projects.map((project) => (
-                <div
-                  key={project.id}
-                  className="px-4"
-                  style={{
-                    flex: `0 0 ${cardBasis}%`,
-                    maxWidth: `${cardBasis}%`,
-                  }}
-                >
-                  <div className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover h-full flex flex-col">
-                    <div className="h-48 overflow-hidden flex-shrink-0">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                    </div>
-
-                    <div className="p-6 flex flex-col flex-grow">
-                      {/* Tags section con altura fija */}
-                      <div className="flex flex-wrap gap-2 mb-4 min-h-[56px]">
-                        {project.tags.map((tag, idx) => (
-                          <span
-                            key={tag + idx}
-                            className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground h-fit"
-                          >
-                            {tag}
-                          </span>
-                        ))}
+              {projects.map((project) => {
+                const projectUrl = project.demoUrl || project.githubUrl;
+                return (
+                  <div
+                    key={project.id}
+                    className="px-4"
+                    style={{
+                      flex: `0 0 ${cardBasis}%`,
+                      maxWidth: `${cardBasis}%`,
+                    }}
+                  >
+                    <div
+                      className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover h-full flex flex-col cursor-pointer"
+                      onClick={() => window.open(projectUrl, "_blank")}
+                    >
+                      <div className="h-48 overflow-hidden flex-shrink-0">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
                       </div>
 
-                      {/* Título */}
-                      <h3 className="text-xl font-semibold mb-2">
-                        {project.title}
-                      </h3>
+                      <div className="p-6 flex flex-col flex-grow">
+                        {/* Tags section con altura fija */}
+                        <div className="flex flex-wrap gap-2 mb-4 min-h-[56px]">
+                          {project.tags.map((tag, idx) => (
+                            <span
+                              key={tag + idx}
+                              className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground h-fit"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
 
-                      {/* Descripción con espacio flexible */}
-                      <p className="text-muted-foreground text-sm mb-6 flex-grow">
-                        {project.description}
-                      </p>
+                        {/* Título */}
+                        <h3 className="text-xl font-semibold mb-2">
+                          {project.title}
+                        </h3>
 
-                      {/* Iconos fijos en la parte inferior */}
-                      <div className="flex space-x-3 mt-auto">
-                        <a
-                          href={project.demoUrl}
-                          target="_blank"
-                          className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                        >
-                          <ExternalLink size={20} />
-                        </a>
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                        >
-                          <Github size={20} />
-                        </a>
+                        {/* Descripción con espacio flexible */}
+                        <p className="text-muted-foreground text-sm mb-6 flex-grow">
+                          {project.description}
+                        </p>
+
+                        {/* Iconos fijos en la parte inferior */}
+                        <div className="flex space-x-3 mt-auto">
+                          <a
+                            href={project.demoUrl}
+                            target="_blank"
+                            className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <ExternalLink size={20} />
+                          </a>
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <Github size={20} />
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
