@@ -35,7 +35,7 @@ export const AboutSection = () => {
               </a>
 
               <a
-                href="/public/cv/Santiago_CV.docx.pdf"
+                href="/cv/Santiago_CV.docx.pdf"
                 download
                 target="_blank"
                 rel="noopener noreferrer"
