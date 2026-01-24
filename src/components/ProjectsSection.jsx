@@ -37,31 +37,24 @@ const projects = [
   },
   {
     id: 3,
+    title: "Financial Management System",
+    description:
+      "Personal portfolio designed to present my work, skills, and professional experience, showcasing who I am and the projects I have developed.",
+    image: "/projects/SistemaFinanciero.png",
+    tags: ["Next.js", "TypeScript", "Jest", "PostgreSQL", "TailwindCSS", "Shadcn UI"],
+    demoUrl: "https://santiagortpobdo-finanzapp.vercel.app/",
+    githubUrl: "https://github.com/SantiagoRtpoBdo/Sistema_de_Gestion_Financiera",
+  },
+  {
+    id: 4,
     title: "Word Search Solver",
     description:
       "Developed a web application to solve word search puzzles, detecting words in all directions and highlighting them within a visual matrix",
-    image: "/projects/SolucionadorSopaLetra.png",
+    image: "/projects/SolucionadorSopaLetraV2.png",
     tags: ["HTML5", "CSS3", "JavaScript"],
     demoUrl: "",
     githubUrl: "https://github.com/SantiagoRtpoBdo/Solucionador_Sopa_de_Letras",
   },
-  // {
-  //   id: 4,
-  //   title: "My Portfolio Website",
-  //   description:
-  //     "Personal portfolio designed to present my work, skills, and professional experience, showcasing who I am and the projects I have developed.",
-  //   image: "",
-  //   tags: [
-  //     "React",
-  //     "TypeScript",
-  //     "Lucide Icons",
-  //     "Vite",
-  //     "TailwindCSS",
-  //     "Radix UI",
-  //   ],
-  //   demoUrl: "#",
-  //   githubUrl: "#",
-  // },
   // {
   //   id: 5,
   //   title: "Orbit Analytics Dashboard",
