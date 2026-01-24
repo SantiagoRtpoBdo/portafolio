@@ -37,11 +37,11 @@ const projects = [
   },
   {
     id: 3,
-    title: "Financial Management System",
+    title: "Finanzapp",
     description:
-      "Personal portfolio designed to present my work, skills, and professional experience, showcasing who I am and the projects I have developed.",
+      "Financial management web application that allows users to record income and expenses, generate reports, and visualize financial status through interactive charts.",
     image: "/projects/SistemaFinanciero.png",
-    tags: ["Next.js", "TypeScript", "Jest", "PostgreSQL", "TailwindCSS", "Shadcn UI"],
+    tags: ["NextJS", "TypeScript", "PostgreSQL",  "Jest","TailwindCSS", "Shadcn UI"],
     demoUrl: "https://santiagortpobdo-finanzapp.vercel.app/",
     githubUrl: "https://github.com/SantiagoRtpoBdo/Sistema_de_Gestion_Financiera",
   },
